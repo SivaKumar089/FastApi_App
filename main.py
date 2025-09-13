@@ -7,5 +7,12 @@ def read_root():
     return {"message": "Hello, FastAPI!"}
 
 @app.get("/items/{item_id}")
-def read_item(item_id: int, q: str | None = None):
-    return {"item_id": item_id, "q": q}
+def read_item(item_id: int):
+    return {"item_id": item_id}
+
+
+@app.get("/search/")
+def search_items(q: str = None):
+    return {"query": q}
+
+
